@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="pesanan anda"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp">
+
+                        <TextView
+                            android:id="@+id/tv_nama_os"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Windows 10"
+                            android:textColor="@color/textColorBlack"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_tipe_os"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tv_nama_os"
+                            android:text="x64"
+                            android:textColor="@color/textColorBlack"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tv_harga_os"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_below="@id/tv_tipe_os"
+                            android:text="Rp. 20.000"
+                            android:textSize="18sp"
+                            android:textColor="@color/textColorBlack"
+                            android:textStyle="bold"/>
+
+                        <ImageView
+                            android:id="@+id/image_os"
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/ic_launcher_background"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="extras"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp">
+
+                        <TextView
+                            android:id="@+id/multimedia"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Multimedia"
+                            android:textColor="@color/textColorBlack"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/multimedia"
+                            android:text="VLC, AIMP, Browser"
+                            android:textColor="@color/textColorBlack"
+                            android:textSize="14sp" />
+
+                        <CheckBox
+                            android:id="@+id/check_multimedia"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"/>
+
+                        <TextView
+                            android:id="@+id/txt_harga_multimedia"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/check_multimedia"
+                            android:layout_alignParentRight="true"
+                            android:text="Rp. 5.000"
+                            android:textColor="@color/textColorBlack"
+                            android:textSize="14sp" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp">
+
+                        <TextView
+                            android:id="@+id/antivirus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Antivirus"
+                            android:textColor="@color/textColorBlack"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/antivirus"
+                            android:text="Smadav, AVG, Avast"
+                            android:textColor="@color/textColorBlack"
+                            android:textSize="14sp" />
+
+                        <CheckBox
+                            android:id="@+id/check_antivirus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"/>
+
+                        <TextView
+                            android:id="@+id/txt_harga_antivirus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/check_antivirus"
+                            android:layout_alignParentRight="true"
+                            android:text="Rp. 5.000"
+                            android:textColor="@color/textColorBlack"
+                            android:textSize="14sp" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp">
+
+                        <TextView
+                            android:id="@+id/office"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Office"
+                            android:textColor="@color/textColorBlack"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/office"
+                            android:text="Ms. Office, Foxit"
+                            android:textColor="@color/textColorBlack"
+                            android:textSize="14sp" />
+
+                        <CheckBox
+                            android:id="@+id/check_office"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"/>
+
+                        <TextView
+                            android:id="@+id/txt_harga_office"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/check_office"
+                            android:layout_alignParentRight="true"
+                            android:text="Rp. 5.000"
+                            android:textColor="@color/textColorBlack"
+                            android:textSize="14sp" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp">
+
+                        <TextView
+                            android:id="@+id/driver"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Driver"
+                            android:textColor="@color/textColorBlack"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/driver"
+                            android:text="Display, Audio, Graphic"
+                            android:textColor="@color/textColorBlack"
+                            android:textSize="14sp" />
+
+                        <CheckBox
+                            android:id="@+id/check_driver"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"/>
+
+                        <TextView
+                            android:id="@+id/txt_harga_driver"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/check_driver"
+                            android:layout_alignParentRight="true"
+                            android:text="Rp. 5.000"
+                            android:textColor="@color/textColorBlack"
+                            android:textSize="14sp" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="lainnya"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Alamat Pengambilan"
+                        android:textColor="@color/textColorBlack"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/et_alamat_pengambilan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textMultiLine"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Waktu Pengambilan"
+                        android:textColor="@color/textColorBlack"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/et_waktu_pengambilan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="datetime"/>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="8dp"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <Button
+                    android:id="@+id/btn_hitung"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:textColor="@color/textColorWhite"
+                    android:text="NEXT"
+                    android:textStyle="bold"/>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
