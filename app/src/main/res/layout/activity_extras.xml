@@ -66,7 +66,7 @@
                             android:layout_marginTop="8dp"
                             android:layout_below="@id/tv_tipe_os"
                             android:text="Rp. 20.000"
-                            android:textSize="18sp"
+                            android:textSize="16sp"
                             android:textColor="@color/textColorBlack"
                             android:textStyle="bold"/>
 
@@ -301,7 +301,23 @@
                         android:id="@+id/et_alamat_pengambilan"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textMultiLine"/>
+                        android:inputType="textMultiLine"
+                        android:focusable="false"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Tanggal Pengambilan"
+                        android:textColor="@color/textColorBlack"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/et_tanggal_pengambilan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="false"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -316,7 +332,7 @@
                         android:id="@+id/et_waktu_pengambilan"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="datetime"/>
+                        android:focusable="false"/>
 
                 </LinearLayout>
 
@@ -330,8 +346,31 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="8dp"
-                    android:orientation="vertical">
+                    android:padding="16dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical"
+                        android:text="Total :"
+                        android:textColor="@color/textColorBlack"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/total_biaya"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="8dp"
+                        android:text="Rp. 34.000"
+                        android:textColor="@color/textColorBlack"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -343,7 +382,7 @@
                 android:layout_marginTop="10dp">
 
                 <Button
-                    android:id="@+id/btn_hitung"
+                    android:id="@+id/btn_next"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/colorPrimary"

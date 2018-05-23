@@ -1,6 +1,8 @@
 package in.install.userinstallin.adapter;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -17,6 +19,7 @@ import org.w3c.dom.Text;
 import java.util.List;
 
 import in.install.userinstallin.R;
+import in.install.userinstallin.activity.ExtrasActivity;
 import in.install.userinstallin.model.Product;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
@@ -52,7 +55,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         holder.cvProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, ""+product.getIdProduct(), Toast.LENGTH_SHORT).show();
+                context.startActivity(new Intent(context, ExtrasActivity.class));
+                ((Activity) context).overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
             }
         });
     }
