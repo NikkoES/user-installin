@@ -9,18 +9,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import in.install.userinstallin.R;
 import in.install.userinstallin.adapter.HistoryAdapter;
-import in.install.userinstallin.adapter.ProductAdapter;
-import in.install.userinstallin.adapter.SliderView;
 import in.install.userinstallin.api.BaseApiService;
-import in.install.userinstallin.model.History;
-import in.install.userinstallin.model.Product;
+import in.install.userinstallin.model.data.History;
 
 /**
  * A simple {@link Fragment} subclass.

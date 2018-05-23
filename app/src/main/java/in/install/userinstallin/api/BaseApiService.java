@@ -1,5 +1,7 @@
 package in.install.userinstallin.api;
 
+import in.install.userinstallin.model.response.ResponsePost;
+import in.install.userinstallin.model.response.ResponseUser;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.DELETE;
@@ -12,17 +14,18 @@ import retrofit2.http.Path;
 
 public interface BaseApiService {
 
-//    @FormUrlEncoded
-//    @POST("login/")
-//    Call<ResponsePost> login(@Field("email") String email, @Field("password") String password);
-//
-//    @FormUrlEncoded
-//    @POST("register/")
-//    Call<ResponseBody> register(@Field("id_user") String idUser, @Field("nama_user") String nama,
-//                                @Field("no_hp") String noHp, @Field("email") String email, @Field("password") String password, @Field("img_profile") String imgProfile);
-//
-//    @GET("profile/{email}")
-//    Call<ResponseUser> getUserData(@Path("email") String email);
+    @FormUrlEncoded
+    @POST("login/")
+    Call<ResponsePost> login(@Field("email") String email, @Field("password") String password);
+
+    @FormUrlEncoded
+    @POST("register/")
+    Call<ResponseBody> register(@Field("id_user") String idUser, @Field("nama_user") String nama,
+                                @Field("no_hp") String noHp, @Field("email") String email, @Field("password") String password,
+                                @Field("alamat") String alamat, @Field("img_profile") String imgProfile);
+
+    @GET("profile/{email}")
+    Call<ResponseUser> getUserData(@Path("email") String email);
 //
 //    @GET("cicilan/{id_user}")
 //    Call<ResponseCicilan> getAllCicilan(@Path("id_user") String id_user);

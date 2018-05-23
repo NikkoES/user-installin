@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -18,9 +17,7 @@ import java.util.List;
 
 import in.install.userinstallin.R;
 import in.install.userinstallin.activity.DetailHistoryActivity;
-import in.install.userinstallin.activity.ExtrasActivity;
-import in.install.userinstallin.model.History;
-import in.install.userinstallin.model.Product;
+import in.install.userinstallin.model.data.History;
 
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHolder> {
 

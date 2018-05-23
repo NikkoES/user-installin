@@ -1,13 +1,24 @@
-package in.install.userinstallin.model;
+package in.install.userinstallin.model.data;
 
-public class History {
+import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
+public class History implements Serializable {
+
+    @SerializedName("id_transaksi")
     String idTransaksi;
+    @SerializedName("nama_os")
     String namaOS;
+    @SerializedName("tipe_os")
     String tipeOS;
+    @SerializedName("harga_os")
     String hargaOS;
+    @SerializedName("image_os")
     String imageOS;
+    @SerializedName("tanggal_transaksi")
     String tanggalTransaksi;
+    @SerializedName("status_transaksi")
     String statusTransaksi;
 
     public History(String idTransaksi, String namaOS, String tipeOS, String hargaOS, String imageOS, String tanggalTransaksi, String statusTransaksi) {

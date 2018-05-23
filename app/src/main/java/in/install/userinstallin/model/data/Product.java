@@ -1,11 +1,20 @@
-package in.install.userinstallin.model;
+package in.install.userinstallin.model.data;
 
-public class Product {
+import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
+public class Product implements Serializable {
+
+    @SerializedName("id_product")
     String idProduct;
+    @SerializedName("nama_os")
     String namaOS;
+    @SerializedName("tipe_os")
     String tipeOS;
+    @SerializedName("harga_os")
     String hargaOS;
+    @SerializedName("image_os")
     String imageOS;
 
     public Product(String idProduct, String namaOS, String tipeOS, String hargaOS, String imageOS) {

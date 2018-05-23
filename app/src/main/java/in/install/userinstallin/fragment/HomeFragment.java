@@ -12,7 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,8 +23,7 @@ import in.install.userinstallin.adapter.SliderIndicator;
 import in.install.userinstallin.adapter.SliderPagerAdapter;
 import in.install.userinstallin.adapter.SliderView;
 import in.install.userinstallin.api.BaseApiService;
-import in.install.userinstallin.api.UtilsApi;
-import in.install.userinstallin.model.Product;
+import in.install.userinstallin.model.data.Product;
 
 /**
  * A simple {@link Fragment} subclass.

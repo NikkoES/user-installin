@@ -39,13 +39,13 @@ public class AccountFragment extends Fragment {
 
     @OnClick(R.id.btn_edit_profile)
     public void editProfile(){
-        startActivity(new Intent(getContext(), EditProfileActivity.class));
+        startActivity(new Intent(getActivity(), EditProfileActivity.class));
         ((Activity) getContext()).overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
     }
 
     @OnClick(R.id.btn_logout)
     public void logout(){
-        startActivity(new Intent(getContext(), LoginActivity.class));
+        startActivity(new Intent(getActivity(), LoginActivity.class));
         ((Activity) getContext()).overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
     }
 
