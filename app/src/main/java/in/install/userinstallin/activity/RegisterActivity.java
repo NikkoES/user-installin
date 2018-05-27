@@ -68,18 +68,17 @@ public class RegisterActivity extends AppCompatActivity {
             password = etPassword.getText().toString();
             simpanData(nama, email, phone, alamat, password);
         }
-//        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-//        overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
     }
 
     private void simpanData(String nama, String email, String phone, String alamat, String password){
-        apiService.register("", nama, phone, email, password, alamat, "")
+        apiService.register(nama, phone, email, password, alamat, "")
                 .enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                         if (response.isSuccessful()){
                             loadingDaftar.dismiss();
                             finish();
+                            overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
                         } else {
                             loadingDaftar.dismiss();
                         }

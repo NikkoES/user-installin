@@ -6,13 +6,13 @@ import java.io.Serializable;
 
 public class Extras implements Serializable {
 
-    @SerializedName("id_extras")
+    @SerializedName("id_extra")
     String idExtras;
-    @SerializedName("nama_extras")
+    @SerializedName("nama")
     String namaExtras;
     @SerializedName("rincian")
     String rincian;
-    @SerializedName("harga_extras")
+    @SerializedName("harga")
     String hargaExtras;
 
     public Extras(String idExtras, String namaExtras, String rincian, String hargaExtras) {

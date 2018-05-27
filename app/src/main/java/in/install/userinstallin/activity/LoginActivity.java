@@ -122,10 +122,10 @@ public class LoginActivity extends AppCompatActivity {
 
                         session.storeData("userProfile", userProfile.toString());
 
+                        finish();
                         Intent i = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(i);
                         overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
-                        finish();
 
                     }
                     catch (JSONException e) {

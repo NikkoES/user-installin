@@ -1,6 +1,8 @@
 package in.install.userinstallin.api;
 
+import in.install.userinstallin.model.response.ResponseExtras;
 import in.install.userinstallin.model.response.ResponsePost;
+import in.install.userinstallin.model.response.ResponseProduct;
 import in.install.userinstallin.model.response.ResponseUser;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -19,16 +21,19 @@ public interface BaseApiService {
     Call<ResponsePost> login(@Field("email") String email, @Field("password") String password);
 
     @FormUrlEncoded
-    @POST("register/")
-    Call<ResponseBody> register(@Field("id_user") String idUser, @Field("nama_user") String nama,
+    @POST("user/")
+    Call<ResponseBody> register(@Field("nama") String nama,
                                 @Field("no_hp") String noHp, @Field("email") String email, @Field("password") String password,
-                                @Field("alamat") String alamat, @Field("img_profile") String imgProfile);
+                                @Field("alamat") String alamat, @Field("foto") String imgProfile);
 
-    @GET("profile/{email}")
+    @GET("user/{email}")
     Call<ResponseUser> getUserData(@Path("email") String email);
 //
-//    @GET("cicilan/{id_user}")
-//    Call<ResponseCicilan> getAllCicilan(@Path("id_user") String id_user);
+    @GET("products/")
+    Call<ResponseProduct> getAllProduct();
+
+    @GET("extras/{id_product}")
+    Call<ResponseExtras> getDataExtras(@Path("id_product") String idProduct);
 //
 //    @FormUrlEncoded
 //    @POST("cicilan/")

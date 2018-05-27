@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +24,12 @@ import in.install.userinstallin.adapter.SliderIndicator;
 import in.install.userinstallin.adapter.SliderPagerAdapter;
 import in.install.userinstallin.adapter.SliderView;
 import in.install.userinstallin.api.BaseApiService;
+import in.install.userinstallin.api.UtilsApi;
 import in.install.userinstallin.model.data.Product;
+import in.install.userinstallin.model.response.ResponseProduct;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -63,13 +69,13 @@ public class HomeFragment extends Fragment {
 
         sliderView = (SliderView) v.findViewById(R.id.sliderView);
         mLinearLayout = (LinearLayout) v.findViewById(R.id.pagesContainer);
-        setupSlider();
+//        setupSlider();
 
         rvHome = (RecyclerView) v.findViewById(R.id.rv_product);
 
         adapter = new ProductAdapter(getContext(), listProduct);
 
-//        apiService = UtilsApi.getAPIService();
+        apiService = UtilsApi.getAPIService();
 
         rvHome.setHasFixedSize(true);
         rvHome.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -83,13 +89,29 @@ public class HomeFragment extends Fragment {
     public void refresh() {
         loading = ProgressDialog.show(getContext(), null, "Harap Tunggu...", true, false);
 
-        listProduct.add(new Product("1", "Windows 10", "x64", "Rp. 20.000", ""));
-        listProduct.add(new Product("2", "Windows 8", "x64", "Rp. 20.000", ""));
-        listProduct.add(new Product("3", "Windows 7", "x86", "Rp. 20.000", ""));
-        listProduct.add(new Product("4", "Linux Mint", "LTS", "Rp. 20.000", ""));
-        listProduct.add(new Product("5", "Linux Ubuntu", "LTS", "Rp. 20.000", ""));
-        adapter.notifyDataSetChanged();
-        loading.dismiss();
+        apiService.getAllProduct().enqueue(new Callback<ResponseProduct>() {
+            @Override
+            public void onResponse(Call<ResponseProduct> call, Response<ResponseProduct> response) {
+                if (response.isSuccessful()){
+                    loading.dismiss();
+
+                    listProduct = response.body().getListProduct();
+
+                    rvHome.setAdapter(new ProductAdapter(getContext(), listProduct));
+                    adapter.notifyDataSetChanged();
+                }
+                else {
+                    loading.dismiss();
+                    Toast.makeText(getContext(), "Failed to Fetch Data !", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseProduct> call, Throwable t) {
+                loading.dismiss();
+                Toast.makeText(getContext(), "Failed to Connect Internet !", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void setupSlider() {

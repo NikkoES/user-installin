@@ -6,17 +6,17 @@ import java.io.Serializable;
 
 public class User implements Serializable {
 
-    @SerializedName("id_user")
+    @SerializedName("ID")
     String idUser;
-    @SerializedName("nama_user")
+    @SerializedName("NAMA")
     String namaUser;
-    @SerializedName("no_hp")
+    @SerializedName("NO_HP")
     String noHp;
-    @SerializedName("email")
+    @SerializedName("EMAIL")
     String email;
-    @SerializedName("alamat")
+    @SerializedName("ALAMAT")
     String alamat;
-    @SerializedName("img_profile")
+    @SerializedName("foto")
     String imgProfile;
 
     public User(String idUser, String namaUser, String noHp, String email, String alamat, String imgProfile) {

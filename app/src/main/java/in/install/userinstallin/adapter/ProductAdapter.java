@@ -13,11 +13,15 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.List;
 
 import in.install.userinstallin.R;
 import in.install.userinstallin.activity.ExtrasActivity;
 import in.install.userinstallin.model.data.Product;
+
+import static android.text.TextUtils.concat;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
 
@@ -48,14 +52,32 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
                 .into(holder.imageOS);
         holder.txtNamaOS.setText(product.getNamaOS());
         holder.txtTipeOS.setText(product.getTipeOS());
-        holder.txtHargaOS.setText(product.getHargaOS());
+        holder.txtHargaOS.setText(concat(currencyFormatter(Integer.parseInt(product.getHargaOS()))));
         holder.cvProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.startActivity(new Intent(context, ExtrasActivity.class));
+                Intent i = new Intent(context, ExtrasActivity.class);
+                i.putExtra("id_product", product.getIdProduct());
+                i.putExtra("nama_os", product.getNamaOS());
+                i.putExtra("desc_os", product.getTipeOS());
+                i.putExtra("harga_os", product.getHargaOS());
+                i.putExtra("image_os", product.getImageOS());
+                context.startActivity(i);
                 ((Activity) context).overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
             }
         });
+    }
+
+    public String currencyFormatter(int number){
+        DecimalFormat kursIndo = (DecimalFormat) DecimalFormat.getCurrencyInstance();
+        DecimalFormatSymbols formatRp = new DecimalFormatSymbols();
+
+        formatRp.setCurrencySymbol("Rp. ");
+        formatRp.setMonetaryDecimalSeparator('.');
+        formatRp.setGroupingSeparator('.');
+
+        kursIndo.setDecimalFormatSymbols(formatRp);
+        return kursIndo.format(number);
     }
 
     @Override

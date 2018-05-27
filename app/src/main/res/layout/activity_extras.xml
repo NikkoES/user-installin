@@ -76,7 +76,8 @@
                             android:layout_height="64dp"
                             android:layout_centerVertical="true"
                             android:layout_alignParentRight="true"
-                            android:src="@drawable/ic_launcher_background"/>
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/no_image"/>
 
                     </RelativeLayout>
 
@@ -104,165 +105,49 @@
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
-                    <RelativeLayout
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/list_extras"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp">
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="16dp"/>
 
-                        <TextView
-                            android:id="@+id/multimedia"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Multimedia"
-                            android:textColor="@color/textColorBlack"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
+                </LinearLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/multimedia"
-                            android:text="VLC, AIMP, Browser"
-                            android:textColor="@color/textColorBlack"
-                            android:textSize="14sp" />
+            </android.support.v7.widget.CardView>
 
-                        <CheckBox
-                            android:id="@+id/check_multimedia"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"/>
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
 
-                        <TextView
-                            android:id="@+id/txt_harga_multimedia"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/check_multimedia"
-                            android:layout_alignParentRight="true"
-                            android:text="Rp. 5.000"
-                            android:textColor="@color/textColorBlack"
-                            android:textSize="14sp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="16dp"
+                    android:orientation="horizontal">
 
-                    </RelativeLayout>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical"
+                        android:text="Total :"
+                        android:textColor="@color/textColorBlack"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp">
-
-                        <TextView
-                            android:id="@+id/antivirus"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Antivirus"
-                            android:textColor="@color/textColorBlack"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/antivirus"
-                            android:text="Smadav, AVG, Avast"
-                            android:textColor="@color/textColorBlack"
-                            android:textSize="14sp" />
-
-                        <CheckBox
-                            android:id="@+id/check_antivirus"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"/>
-
-                        <TextView
-                            android:id="@+id/txt_harga_antivirus"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/check_antivirus"
-                            android:layout_alignParentRight="true"
-                            android:text="Rp. 5.000"
-                            android:textColor="@color/textColorBlack"
-                            android:textSize="14sp" />
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp">
-
-                        <TextView
-                            android:id="@+id/office"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Office"
-                            android:textColor="@color/textColorBlack"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/office"
-                            android:text="Ms. Office, Foxit"
-                            android:textColor="@color/textColorBlack"
-                            android:textSize="14sp" />
-
-                        <CheckBox
-                            android:id="@+id/check_office"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"/>
-
-                        <TextView
-                            android:id="@+id/txt_harga_office"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/check_office"
-                            android:layout_alignParentRight="true"
-                            android:text="Rp. 5.000"
-                            android:textColor="@color/textColorBlack"
-                            android:textSize="14sp" />
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp">
-
-                        <TextView
-                            android:id="@+id/driver"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Driver"
-                            android:textColor="@color/textColorBlack"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/driver"
-                            android:text="Display, Audio, Graphic"
-                            android:textColor="@color/textColorBlack"
-                            android:textSize="14sp" />
-
-                        <CheckBox
-                            android:id="@+id/check_driver"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"/>
-
-                        <TextView
-                            android:id="@+id/txt_harga_driver"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/check_driver"
-                            android:layout_alignParentRight="true"
-                            android:text="Rp. 5.000"
-                            android:textColor="@color/textColorBlack"
-                            android:textSize="14sp" />
-
-                    </RelativeLayout>
+                    <TextView
+                        android:id="@+id/total_biaya"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="8dp"
+                        android:text="Rp. 34.000"
+                        android:textColor="@color/textColorBlack"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -291,7 +176,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="16dp"
                         android:text="Alamat Pengambilan"
                         android:textColor="@color/textColorBlack"
                         android:textSize="16sp"
@@ -333,44 +218,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:focusable="false"/>
-
-                </LinearLayout>
-
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="16dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:layout_marginTop="8dp"
-                        android:gravity="center_vertical"
-                        android:text="Total :"
-                        android:textColor="@color/textColorBlack"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/total_biaya"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="2"
-                        android:gravity="center_vertical"
-                        android:layout_marginTop="8dp"
-                        android:text="Rp. 34.000"
-                        android:textColor="@color/textColorBlack"
-                        android:textSize="24sp"
-                        android:textStyle="bold" />
 
                 </LinearLayout>
 

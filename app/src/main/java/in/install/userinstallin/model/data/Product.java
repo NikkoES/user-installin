@@ -6,15 +6,15 @@ import java.io.Serializable;
 
 public class Product implements Serializable {
 
-    @SerializedName("id_product")
+    @SerializedName("ID_PRODUCT")
     String idProduct;
-    @SerializedName("nama_os")
+    @SerializedName("NAMA")
     String namaOS;
-    @SerializedName("tipe_os")
-    String tipeOS;
-    @SerializedName("harga_os")
+    @SerializedName("HARGA")
     String hargaOS;
-    @SerializedName("image_os")
+    @SerializedName("atribut")
+    String tipeOS;
+    @SerializedName("img_product")
     String imageOS;
 
     public Product(String idProduct, String namaOS, String tipeOS, String hargaOS, String imageOS) {
