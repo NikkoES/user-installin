@@ -6,27 +6,27 @@ import java.io.Serializable;
 
 public class Order implements Serializable {
 
-    @SerializedName("id_order")
+    @SerializedName("ID_ORDER")
     String idOrder;
-    @SerializedName("id_kurir")
+    @SerializedName("ID_KURIR")
     String idKurir;
-    @SerializedName("id_user")
+    @SerializedName("ID")
     String idUser;
     @SerializedName("id_product")
     String idProduct;
-    @SerializedName("tanggal_order")
+    @SerializedName("TGL_ORDER")
     String tanggalOrder;
     @SerializedName("status")
     String status;
-    @SerializedName("alamat_pengambilan")
+    @SerializedName("tempat_pengambilan")
     String alamatPengambilan;
-    @SerializedName("tanggal_pengambilan")
+    @SerializedName("tgl_pengambilan")
     String tanggalPengambilan;
     @SerializedName("waktu_pengambilan")
     String waktuPengambilan;
-    @SerializedName("alamat_pengantaran")
+    @SerializedName("tempat_pengantaran")
     String alamatPengantaran;
-    @SerializedName("tanggal_pengantaran")
+    @SerializedName("tgl_pengantaran")
     String tanggalPengantaran;
     @SerializedName("waktu_pengantaran")
     String waktuPengantaran;

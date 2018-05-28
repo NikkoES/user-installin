@@ -13,16 +13,24 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.List;
 
 import in.install.userinstallin.R;
 import in.install.userinstallin.activity.DetailHistoryActivity;
+import in.install.userinstallin.api.BaseApiService;
+import in.install.userinstallin.api.UtilsApi;
 import in.install.userinstallin.model.data.History;
+
+import static android.text.TextUtils.concat;
 
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHolder> {
 
     private Context context;
     private List<History> listHistory;
+
+    BaseApiService apiService;
 
     public HistoryAdapter(Context context, List<History> listHistory){
         this.context = context;
@@ -40,24 +48,69 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, int position) {
         final History history = listHistory.get(position);
+
+        apiService = UtilsApi.getAPIService();
+
         Glide.with(context)
-                .load(history.getImageOS())
+                .load(history.getImgOs())
                 .placeholder(R.drawable.ic_launcher_background)
                 .into(holder.imageOS);
-        holder.txtNamaOS.setText(history.getNamaOS());
-        holder.txtTipeOS.setText(history.getTipeOS());
-        holder.txtHargaOS.setText(history.getHargaOS());
-        holder.txtTanggal.setText(history.getTanggalTransaksi());
-        holder.txtStatus.setText(history.getStatusTransaksi());
+        holder.txtNamaOS.setText(history.getNamaOs());
+        holder.txtTipeOS.setText(history.getTipeOs());
+        holder.txtHargaOS.setText(concat(currencyFormatter(Integer.parseInt(history.getHargaTotal()))));
+        holder.txtTanggal.setText(history.getTanggalOrder());
+
+        String status = "";
+        switch (history.getStatus()){
+            case "0" : {
+                status = "On Confirming";
+                break;
+            }
+            case "1" : {
+                status = "On Progress";
+                break;
+            }
+            case "2" : {
+                status = "Done";
+                break;
+            }
+            case "3" : {
+                status = "Cancelled";
+                break;
+            }
+            case "4" : {
+                status = "Rejected";
+                break;
+            }
+        }
+        holder.txtStatus.setText(status);
         holder.cvHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.startActivity(new Intent(context, DetailHistoryActivity.class));
+                Intent i = new Intent(context, DetailHistoryActivity.class);
+                i.putExtra("id_order", history.getIdOrder());
+                i.putExtra("id_user", history.getIdUser());
+                i.putExtra("id_product", history.getIdProduct());
+                i.putExtra("id_kurir", history.getIdKurir());
+                context.startActivity(i);
                 ((Activity) context).overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
             }
         });
+
+    }
+
+    public String currencyFormatter(int number){
+        DecimalFormat kursIndo = (DecimalFormat) DecimalFormat.getCurrencyInstance();
+        DecimalFormatSymbols formatRp = new DecimalFormatSymbols();
+
+        formatRp.setCurrencySymbol("Rp. ");
+        formatRp.setMonetaryDecimalSeparator('.');
+        formatRp.setGroupingSeparator('.');
+
+        kursIndo.setDecimalFormatSymbols(formatRp);
+        return kursIndo.format(number);
     }
 
     @Override

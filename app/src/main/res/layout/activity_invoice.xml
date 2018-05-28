@@ -104,141 +104,11 @@
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
-                    <RelativeLayout
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/list_extras"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp">
-
-                        <TextView
-                            android:id="@+id/multimedia"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Multimedia"
-                            android:textColor="@color/textColorBlack"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/multimedia"
-                            android:text="VLC, AIMP, Browser"
-                            android:textColor="@color/textColorBlack"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/txt_harga_multimedia"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:text="Rp. 5.000"
-                            android:textColor="@color/textColorBlack"
-                            android:textSize="14sp" />
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp">
-
-                        <TextView
-                            android:id="@+id/antivirus"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Antivirus"
-                            android:textColor="@color/textColorBlack"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/antivirus"
-                            android:text="Smadav, AVG, Avast"
-                            android:textColor="@color/textColorBlack"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/txt_harga_antivirus"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:text="Rp. 5.000"
-                            android:textColor="@color/textColorBlack"
-                            android:textSize="14sp" />
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp">
-
-                        <TextView
-                            android:id="@+id/office"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Office"
-                            android:textColor="@color/textColorBlack"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/office"
-                            android:text="Ms. Office, Foxit"
-                            android:textColor="@color/textColorBlack"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/txt_harga_office"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:text="Rp. 5.000"
-                            android:textColor="@color/textColorBlack"
-                            android:textSize="14sp" />
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp">
-
-                        <TextView
-                            android:id="@+id/driver"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Driver"
-                            android:textColor="@color/textColorBlack"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/driver"
-                            android:text="Display, Audio, Graphic"
-                            android:textColor="@color/textColorBlack"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/txt_harga_driver"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:text="Rp. 5.000"
-                            android:textColor="@color/textColorBlack"
-                            android:textSize="14sp" />
-
-                    </RelativeLayout>
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="16dp"/>
 
                 </LinearLayout>
 
@@ -364,7 +234,7 @@
                 android:layout_marginTop="10dp">
 
                 <Button
-                    android:id="@+id/btn_next"
+                    android:id="@+id/btn_pesan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/colorPrimary"

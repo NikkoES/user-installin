@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="in.install.userinstallin">
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -38,7 +39,6 @@
         <activity android:name=".activity.PickupLocationActivity" android:theme="@style/AppTheme" />
         <activity android:name=".activity.InvoiceActivity" android:theme="@style/AppTheme" />
         <activity android:name=".activity.DetailHistoryActivity" android:theme="@style/AppTheme" />
-        <activity android:name=".activity.EditProfileActivity" android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

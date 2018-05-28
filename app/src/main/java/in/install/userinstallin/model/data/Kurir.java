@@ -6,15 +6,15 @@ import java.io.Serializable;
 
 public class Kurir implements Serializable {
 
-    @SerializedName("id_kurir")
+    @SerializedName("ID_KURIR")
     String idKurir;
-    @SerializedName("nama_kurir")
+    @SerializedName("NAMA")
     String namaKurir;
-    @SerializedName("no_ktp")
+    @SerializedName("NO_KTP")
     String noKtp;
-    @SerializedName("no_hp")
+    @SerializedName("NO_HP")
     String noHp;
-    @SerializedName("foto")
+    @SerializedName("FOTO")
     String foto;
 
     public Kurir(String idKurir, String namaKurir, String noKtp, String noHp, String foto) {

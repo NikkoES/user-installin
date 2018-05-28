@@ -13,20 +13,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.bumptech.glide.Glide;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import in.install.userinstallin.R;
-import in.install.userinstallin.activity.EditProfileActivity;
 import in.install.userinstallin.activity.LoginActivity;
-import in.install.userinstallin.activity.MainActivity;
-import in.install.userinstallin.activity.RegisterActivity;
 import in.install.userinstallin.utils.SharedPreferencesUtils;
 
 /**
@@ -34,7 +26,7 @@ import in.install.userinstallin.utils.SharedPreferencesUtils;
  */
 public class AccountFragment extends Fragment {
 
-    Button btnEditProfile, btnLogout;
+    Button btnLogout;
     ImageView imgUser;
     TextView txtNama, txtEmail, txtPhone, txtAlamat;
 
@@ -69,7 +61,6 @@ public class AccountFragment extends Fragment {
             e.printStackTrace();
         }
 
-
         try {
             txtNama.setText(userProfile.get("name").toString());
             txtEmail.setText(userProfile.get("email").toString());
@@ -79,16 +70,7 @@ public class AccountFragment extends Fragment {
             e.printStackTrace();
         }
 
-        btnEditProfile = v.findViewById(R.id.btn_edit_profile);
         btnLogout = v.findViewById(R.id.btn_logout);
-
-        btnEditProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getActivity(), EditProfileActivity.class));
-                ((Activity) getContext()).overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
-            }
-        });
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override

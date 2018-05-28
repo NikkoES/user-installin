@@ -26,7 +26,7 @@ import in.install.userinstallin.adapter.SliderView;
 import in.install.userinstallin.api.BaseApiService;
 import in.install.userinstallin.api.UtilsApi;
 import in.install.userinstallin.model.data.Product;
-import in.install.userinstallin.model.response.ResponseProduct;
+import in.install.userinstallin.model.response.ResponseListProduct;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -89,9 +89,9 @@ public class HomeFragment extends Fragment {
     public void refresh() {
         loading = ProgressDialog.show(getContext(), null, "Harap Tunggu...", true, false);
 
-        apiService.getAllProduct().enqueue(new Callback<ResponseProduct>() {
+        apiService.getAllProduct().enqueue(new Callback<ResponseListProduct>() {
             @Override
-            public void onResponse(Call<ResponseProduct> call, Response<ResponseProduct> response) {
+            public void onResponse(Call<ResponseListProduct> call, Response<ResponseListProduct> response) {
                 if (response.isSuccessful()){
                     loading.dismiss();
 
@@ -107,7 +107,7 @@ public class HomeFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<ResponseProduct> call, Throwable t) {
+            public void onFailure(Call<ResponseListProduct> call, Throwable t) {
                 loading.dismiss();
                 Toast.makeText(getContext(), "Failed to Connect Internet !", Toast.LENGTH_SHORT).show();
             }

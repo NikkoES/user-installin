@@ -12,14 +12,14 @@ public class ResponseOrder {
     private String status;
 
     @SerializedName("data")
-    private List<Order> listOrder;
+    private Order order;
 
     public String getStatus() {
         return status;
     }
 
-    public List<Order> getListOrder() {
-        return listOrder;
+    public Order getOrder() {
+        return order;
     }
 
 }

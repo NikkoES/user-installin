@@ -2,23 +2,24 @@ package in.install.userinstallin.model.response;
 
 import com.google.gson.annotations.SerializedName;
 
-import in.install.userinstallin.model.data.Kurir;
-import in.install.userinstallin.model.data.Product;
+import java.util.List;
 
-public class ResponseProduct {
+import in.install.userinstallin.model.data.Extras;
+
+public class ResponseListExtras {
 
     @SerializedName("status")
     private String status;
 
     @SerializedName("data")
-    private Product product;
+    private List<Extras> listExtras;
 
     public String getStatus() {
         return status;
     }
 
-    public Product getProduct() {
-        return product;
+    public List<Extras> getListExtras() {
+        return listExtras;
     }
 
 }

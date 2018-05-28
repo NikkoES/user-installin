@@ -5,17 +5,13 @@ import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -25,18 +21,16 @@ import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlacePicker;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -46,8 +40,7 @@ import in.install.userinstallin.adapter.ExtrasAdapter;
 import in.install.userinstallin.api.BaseApiService;
 import in.install.userinstallin.api.UtilsApi;
 import in.install.userinstallin.model.data.Extras;
-import in.install.userinstallin.model.response.ResponseExtras;
-import in.install.userinstallin.model.response.ResponseUser;
+import in.install.userinstallin.model.response.ResponseListExtras;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -154,9 +147,9 @@ public class ExtrasActivity extends AppCompatActivity {
     }
 
     private void setExtras(String idProduct) {
-        apiService.getDataExtras(idProduct).enqueue(new Callback<ResponseExtras>() {
+        apiService.getDataExtras(idProduct).enqueue(new Callback<ResponseListExtras>() {
             @Override
-            public void onResponse(Call<ResponseExtras> call, Response<ResponseExtras> response) {
+            public void onResponse(Call<ResponseListExtras> call, Response<ResponseListExtras> response) {
                 if (response.body().getStatus().equals("success")){
                     listExtras = response.body().getListExtras();
 
@@ -183,7 +176,7 @@ public class ExtrasActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<ResponseExtras> call, Throwable t) {
+            public void onFailure(Call<ResponseListExtras> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "Koneksi Internet Bermasalah", Toast.LENGTH_SHORT).show();
             }
         });
@@ -238,8 +231,18 @@ public class ExtrasActivity extends AppCompatActivity {
 
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                        etTanggalPengambilan.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
-
+                        String sDate = dayOfMonth + "-" + (monthOfYear + 1) + "-" + year;
+                        SimpleDateFormat dateFormat = new SimpleDateFormat("d-M-yyyy");
+                        TimeZone tz = TimeZone.getTimeZone("Asia/Jakarta");
+                        try {
+                            Date newDate = dateFormat.parse(sDate);
+                            dateFormat = new SimpleDateFormat("dd MMM yyyy");
+                            dateFormat.setTimeZone(tz);
+                            etTanggalPengambilan.setText(dateFormat.format(newDate));
+                        }
+                        catch (ParseException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }, mYear, mMonth, mDay);
 
@@ -257,7 +260,18 @@ public class ExtrasActivity extends AppCompatActivity {
                 new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        etWaktuPengambilan.setText(hourOfDay + ":" + minute);
+                        String sTime = hourOfDay + ":" + minute;
+                        SimpleDateFormat timeFormat = new SimpleDateFormat("H:m");
+                        TimeZone tz = TimeZone.getTimeZone("Asia/Jakarta");
+                        try {
+                            Date newTime = timeFormat.parse(sTime);
+                            timeFormat = new SimpleDateFormat("HH:mm");
+                            timeFormat.setTimeZone(tz);
+                            etWaktuPengambilan.setText(timeFormat.format(newTime));
+                        }
+                        catch (ParseException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }, mHour, mMinute, false);
 

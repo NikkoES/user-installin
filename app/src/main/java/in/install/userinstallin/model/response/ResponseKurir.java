@@ -12,14 +12,14 @@ public class ResponseKurir {
     private String status;
 
     @SerializedName("data")
-    private List<Kurir> listKurir;
+    private Kurir kurir;
 
     public String getStatus() {
         return status;
     }
 
-    public List<Kurir> getListKurir() {
-        return listKurir;
+    public Kurir getKurir() {
+        return kurir;
     }
 
 }

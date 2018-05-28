@@ -1,8 +1,11 @@
 package in.install.userinstallin.activity;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.support.annotation.ColorRes;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -72,13 +75,17 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.call : {
-                Toast.makeText(this, "Call !", Toast.LENGTH_SHORT).show();
+        switch (item.getItemId()) {
+            case R.id.call: {
+                String phone = "08988190546";
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
+                startActivity(intent);
                 break;
             }
             case R.id.message : {
-                Toast.makeText(this, "Message !", Toast.LENGTH_SHORT).show();
+                String urlWhatsapp = "https://api.whatsapp.com/send?phone=628988190546";
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(urlWhatsapp));
+                startActivity(intent);
                 break;
             }
         }

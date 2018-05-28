@@ -1,7 +1,11 @@
 package in.install.userinstallin.api;
 
-import in.install.userinstallin.model.response.ResponseExtras;
+import in.install.userinstallin.model.response.ResponseKurir;
+import in.install.userinstallin.model.response.ResponseListExtras;
+import in.install.userinstallin.model.response.ResponseListHistory;
+import in.install.userinstallin.model.response.ResponseOrder;
 import in.install.userinstallin.model.response.ResponsePost;
+import in.install.userinstallin.model.response.ResponseListProduct;
 import in.install.userinstallin.model.response.ResponseProduct;
 import in.install.userinstallin.model.response.ResponseUser;
 import okhttp3.ResponseBody;
@@ -28,38 +32,69 @@ public interface BaseApiService {
 
     @GET("user/{email}")
     Call<ResponseUser> getUserData(@Path("email") String email);
-//
+
+    @FormUrlEncoded
+    @POST("user/{id}")
+    Call<ResponsePost> updateProfile(@Path("id") String idUser,
+                                     @Field("nama") String nama,
+                                     @Field("no_hp") String noHp,
+                                     @Field("email") String email,
+                                     @Field("alamat") String alamat,
+                                     @Field("password") String password,
+                                     @Field("foto") String foto);
+
     @GET("products/")
-    Call<ResponseProduct> getAllProduct();
+    Call<ResponseListProduct> getAllProduct();
 
     @GET("extras/{id_product}")
-    Call<ResponseExtras> getDataExtras(@Path("id_product") String idProduct);
-//
-//    @FormUrlEncoded
-//    @POST("cicilan/")
-//    Call<ResponsePost> saveCicilan(@Field("id_cicilan") String idCicilan,
-//                                   @Field("keterangan") String keterangan,
-//                                   @Field("pinjaman_kpr") String pinjamanKpr,
-//                                   @Field("bunga_per_tahun") String bungaPerTahun,
-//                                   @Field("tenor_lama_pinjaman") String tenorLamaPinjaman,
-//                                   @Field("tenor_bunga_fix") String tenorBungaFix,
-//                                   @Field("sisa_pokok_pinjaman") String sisaPokokPinjaman,
-//                                   @Field("bunga_floating_per_tahun") String bungaFloating,
-//                                   @Field("cicilan") String cicilan,
-//                                   @Field("cicilan_setelah_floating") String cicilanFloating,
-//                                   @Field("id_user") String idUser);
-//    @FormUrlEncoded
-//    @PUT("cicilan/{id_cicilan}")
-//    Call<ResponsePost> updateCicilan(@Path("id_cicilan") String idCicilan,
-//                                     @Field("keterangan") String keterangan,
-//                                     @Field("pinjaman_kpr") String pinjamanKpr,
-//                                     @Field("bunga_per_tahun") String bungaPerTahun,
-//                                     @Field("tenor_lama_pinjaman") String tenorLamaPinjaman,
-//                                     @Field("tenor_bunga_fix") String tenorBungaFix,
-//                                     @Field("sisa_pokok_pinjaman") String sisaPokokPinjaman,
-//                                     @Field("bunga_floating_per_tahun") String bungaFloating,
-//                                     @Field("cicilan") String cicilan,
-//                                     @Field("cicilan_setelah_floating") String cicilanFloating);
+    Call<ResponseListExtras> getDataExtras(@Path("id_product") String idProduct);
+
+    @FormUrlEncoded
+    @POST("order_product/")
+    Call<ResponsePost> pesanOS(@Field("id_order") String idOrder,
+                               @Field("id_kurir") String idKurir,
+                                   @Field("id") String idUser,
+                                   @Field("id_product") String idProduct,
+                                   @Field("tgl_pengambilan") String tanggalPengambilan,
+                                   @Field("waktu_pengambilan") String waktuPengambilan,
+                                   @Field("tempat_pengambilan") String tempatPengambilan,
+                                   @Field("status") String status,
+                                   @Field("harga_total") String hargaTotal);
+
+    @FormUrlEncoded
+    @POST("order_extras/")
+    Call<ResponsePost> pesanExtras(@Field("id_order") String idOrder,
+                               @Field("id_extras") String idExtras);
+
+    @GET("order_extras/{id_order}")
+    Call<ResponseListExtras> getDataOrderExtrasById(@Path("id_order") String idOrder);
+
+    @GET("kurir/{id_kurir}")
+    Call<ResponseKurir> getKurirById(@Path("id_kurir") String idKurir);
+
+    @GET("products/{id_product}")
+    Call<ResponseProduct> getProductById(@Path("id_product") String idProduct);
+
+    @GET("order_product/id/{id_order}")
+    Call<ResponseOrder> getOrderById(@Path("id_order") String idOrder);
+
+    @GET("order_product/{id_user}")
+    Call<ResponseListHistory> getAllOrderById(@Path("id_user") String idUser);
+
+    @DELETE("order_product/{id}")
+    Call<ResponsePost> deleteOrder(@Path("id") String idOrder);
+
+    @POST("onprogress/{id}")
+    Call<ResponsePost> updateOnProgress(@Path("id") String idOrder);
+
+    @POST("done/{id}")
+    Call<ResponsePost> updateDone(@Path("id") String idOrder);
+
+    @POST("canceled/{id}")
+    Call<ResponsePost> updateCanceled(@Path("id") String idOrder);
+
+    @POST("rejected/{id}")
+    Call<ResponsePost> updateRejected(@Path("id") String idOrder);
 //
 //    @DELETE("cicilan/{id_cicilan}")
 //    Call<ResponsePost> deleteCicilan(@Path("id_cicilan") String idCicilan);
@@ -138,7 +173,7 @@ public interface BaseApiService {
 //    Call<ResponseFasilitas> getFasilitasCashFlow(@Path("id_cash_flow") String idCashFlow);
 //
 //    @GET("cashflow/extras/{id_cash_flow}")
-//    Call<ResponseExtras> getExtrasCashFlow(@Path("id_cash_flow") String idCashFlow);
+//    Call<ResponseListExtras> getExtrasCashFlow(@Path("id_cash_flow") String idCashFlow);
 //
 //    @FormUrlEncoded
 //    @POST("cashflow/data/")

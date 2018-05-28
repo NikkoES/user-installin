@@ -4,22 +4,22 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-import in.install.userinstallin.model.data.Extras;
+import in.install.userinstallin.model.data.History;
 
-public class ResponseExtras {
+public class ResponseListHistory {
 
     @SerializedName("status")
     private String status;
 
     @SerializedName("data")
-    private List<Extras> listExtras;
+    private List<History> listHistory;
 
     public String getStatus() {
         return status;
     }
 
-    public List<Extras> getListExtras() {
-        return listExtras;
+    public List<History> getListHistory() {
+        return listHistory;
     }
 
 }
