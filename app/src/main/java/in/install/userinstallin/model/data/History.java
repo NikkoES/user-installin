@@ -32,7 +32,7 @@ public class History implements Serializable {
     String status;
     @SerializedName("harga_total")
     String hargaTotal;
-    @SerializedName("NAMA")
+    @SerializedName("NAMA_PRODUCT")
     String namaOs;
     @SerializedName("HARGA")
     String hargaOs;

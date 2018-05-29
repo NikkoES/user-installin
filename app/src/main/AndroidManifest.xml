@@ -10,9 +10,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_main_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/ic_main_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <meta-data
@@ -22,7 +22,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_api_key" />
 
-        <activity android:name=".activity.LoginActivity">
+        <activity android:name=".activity.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,10 +35,20 @@
         <activity
             android:name=".activity.RegisterActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity.ExtrasActivity" android:theme="@style/AppTheme" />
-        <activity android:name=".activity.PickupLocationActivity" android:theme="@style/AppTheme" />
-        <activity android:name=".activity.InvoiceActivity" android:theme="@style/AppTheme" />
-        <activity android:name=".activity.DetailHistoryActivity" android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.ExtrasActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.PickupLocationActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.InvoiceActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.DetailHistoryActivity"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".activity.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

@@ -8,7 +8,7 @@ public class Kurir implements Serializable {
 
     @SerializedName("ID_KURIR")
     String idKurir;
-    @SerializedName("NAMA")
+    @SerializedName("NAMA_KURIR")
     String namaKurir;
     @SerializedName("NO_KTP")
     String noKtp;

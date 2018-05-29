@@ -10,7 +10,7 @@ public class User implements Serializable {
     String idUser;
     @SerializedName("NAMA")
     String namaUser;
-    @SerializedName("NO_HP")
+    @SerializedName("NO_HP_USER")
     String noHp;
     @SerializedName("EMAIL")
     String email;

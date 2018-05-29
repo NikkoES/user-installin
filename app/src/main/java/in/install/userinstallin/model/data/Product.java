@@ -8,7 +8,7 @@ public class Product implements Serializable {
 
     @SerializedName("ID_PRODUCT")
     String idProduct;
-    @SerializedName("NAMA")
+    @SerializedName("NAMA_PRODUCT")
     String namaOS;
     @SerializedName("HARGA")
     String hargaOS;
